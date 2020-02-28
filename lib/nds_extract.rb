@@ -11,25 +11,15 @@ end
 # The return value should be like:
 #
 # { directorOne => allTheMoneyTheyMade, ... }
+
 def directors_totals(nds)
- result = {
-  }
-  result = {}	 
-
- director_index = 0 
-
-  while director_index < nds.count do
-    movie_index = 0 
-    gross_total = 0 
-    while movie_index < nds[director_index][:movies].length do
-      gross_total += nds[director_index][:movies][movie_index][:worldwide_gross]
-      movie_index += 1 
-    end
-    result[nds[director_index][:name]] = gross_total
-    director_index += 1 
+ result = {}
+  director_index = 0
+  while director_index < source.size do
+    director = source[director_index]
+    result[director[:name]] = gross_for_director(director)
+    director_index += 1
   end
   result
-	end
-   
-  nil
 end
+
